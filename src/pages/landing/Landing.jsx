@@ -1,5 +1,4 @@
 import React from 'react'
-
 export default function Landing() {
-  return <div>Landing</div>
+  return <div className='landing-page__wrapper'>Landing</div>
 }
