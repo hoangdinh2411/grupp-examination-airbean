@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Landing from '../pages/landing/Landing'
-import Nav from '../pages/nav/Nav'
+import Menu from '../pages/menu/Menu'
+import Status from '../pages/status/About'
+import { Profiler } from 'react'
 
 const router = createBrowserRouter([
   {
@@ -8,8 +10,16 @@ const router = createBrowserRouter([
     element: <Landing />,
   },
   {
-    path: '/nav',
-    element: <Nav />,
+    path: '/menu',
+    element: <Menu />,
+  },
+  {
+    path: '/status',
+    element: <Status />,
+  },
+  {
+    path: '/profile',
+    element: <Profiler />,
   },
 ])
 
