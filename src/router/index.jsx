@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import Landing from '../pages/landing/Landing'
 import Menu from '../pages/menu/Menu'
 import Status from '../pages/status/About'
-import { Profiler } from 'react'
+import Profile from '../pages/profile/Profile'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/profile',
-    element: <Profiler />,
+    element: <Profile />,
   },
 ])
 
