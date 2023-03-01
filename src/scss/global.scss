@@ -4,9 +4,13 @@
 @import './utils/mixin';
 //The base/ folder holds what we might call the boilerplate code for the project. In there, you might find the reset file, some typographic rules, and probably a stylesheet, defining some standard styles for commonly used HTML elements.
 @import 'base/reset';
+
+//components
+@import './components/index';
 //Page -for page-specific styles, it is better to put them in a pages/ folder, in a file named after the page
 
 @import './pages/';
+@import './components/';
 
 #root {
   width: 375px;
