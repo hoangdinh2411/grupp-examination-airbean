@@ -1,8 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Landing from '../pages/landing/Landing'
 import Menu from '../pages/menu/Menu'
-import Status from '../pages/status/About'
+import Status from '../pages/status/Status'
 import { Profiler } from 'react'
+import About from '../pages/about/About'
+
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: '/profile',
     element: <Profiler />,
+  },
+  {
+    path: '/about',
+    element: <About />
   },
 ])
 
