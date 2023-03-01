@@ -1,0 +1,16 @@
+.btn {
+  height: 55px;
+  cursor: pointer;
+  outline: none;
+  @include text(2.4rem, null, 700);
+  border-radius: 50px;
+  &.dark {
+    width: 24.8rem;
+    background: $BUTTON-DARK-BG;
+    color: $BUTTON-DARK-TXT;
+  }
+  &.light {
+    background: $BUTTON-LIGHT-BG;
+    color: $BUTTON-LIGHT-TXT;
+  }
+}
