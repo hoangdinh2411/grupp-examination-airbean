@@ -1,0 +1,53 @@
+.menu__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F3E4E1;
+    font-family: $PT-SERIF;
+    color: #2F2926;
+    width: 100%;
+}
+
+.menu__section{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 20px 225px 100px;
+    width: 80%;
+}
+
+
+.menu__wrapper > h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: center;
+}
+
+.menu__wrapper > .menu__section > h2 {
+font-size: 23px;
+font-weight: 700;
+line-height: 28px;
+text-align: left;
+
+}
+
+.menu__item {
+margin-left: 2rem;
+
+
+}
+
+.menu__description {
+margin-left: -10.5rem;
+margin-top: -0.5rem;
+margin-bottom: 1rem;
+}
+
+.menu__button {
+    background-color: #2F2926;
+    height: 22px;
+    width: 22px;
+    border-radius: 50px;
+    margin-top: 1rem;    
+}
+
