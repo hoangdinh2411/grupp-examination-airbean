@@ -1,13 +1,16 @@
 import React from 'react';
 import './about';
 import cortado from './../../assets/images/cortado.svg'
-
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 export default function About() {
 
 
-  return <div className='wrapper'>
-    <header> HÄR KOMMER HEADER </header>
+  return (
+  <div className='wrapper'>
+   
+    <header>  <Header/> </header>
 
     <h1 >Vårt kaffe</h1>
 
@@ -30,9 +33,10 @@ export default function About() {
     </section>
 
 
-    <footer>HÄR KOMMER FOOTER</footer>
+    <footer> <Footer/>  </footer>
 
   </div>
+  )
 }
 
 

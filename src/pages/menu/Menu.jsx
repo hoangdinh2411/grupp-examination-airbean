@@ -1,8 +1,11 @@
 import React from 'react'
 import MenuButton from '../../assets/images/Vector.svg'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 export default function Menu() {
   return <article className='menu__wrapper'>
+            <Header/>
             <h1>Meny</h1>
             
             <section className='menu__section'>
@@ -46,6 +49,6 @@ export default function Menu() {
             <h2>49 kr</h2>
             </section>
             <p className='menu__description'>Bryggd på månadens bönor</p>
-        
+            <Footer/>
         </article>
 }

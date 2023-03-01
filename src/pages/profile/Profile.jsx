@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import Header from '../../components/header/Header'
 import Auth from './auth'
 import {
   getDataOnSession,
@@ -38,6 +39,7 @@ export default function Profile() {
   }
   return (
     <div className='profile'>
+      <Header/>
       {activeSide === ORDER_HISTORY ? (
         <OrderHistory />
       ) : (
