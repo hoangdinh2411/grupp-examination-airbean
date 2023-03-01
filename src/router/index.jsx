@@ -1,7 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Landing from '../pages/landing/Landing'
-import Nav from '../pages/nav/Nav'
 import Menu from '../pages/menu/Menu'
+import Status from '../pages/status/Status'
+import Profile from '../pages/profile/Profile'
+import About from '../pages/about/About'
 
 const router = createBrowserRouter([
   {
@@ -9,8 +11,20 @@ const router = createBrowserRouter([
     element: <Landing />,
   },
   {
-    path: '/nav',
-    element: <Nav />,
+    path: '/menu',
+    element: <Menu />,
+  },
+  {
+    path: '/status',
+    element: <Status />,
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
+  },
+  {
+    path: '/about',
+    element: <About />
   },
   {
     path: 'menu',
