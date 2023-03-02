@@ -1,7 +1,7 @@
 import React from 'react'
 import headerLeft from './../../assets/images/header-left.svg';
 import headerRight from './../../assets/images/header-right.svg';
-import vector from './../../assets/images/vector.svg';
+import vector from './../../assets/images/Vector.svg';
 
 export default function Landing() {
 

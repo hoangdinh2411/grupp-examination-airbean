@@ -1,5 +1,5 @@
 import React from 'react';
-import './about';
+import './About';
 import cortado from './../../assets/images/cortado.svg'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
