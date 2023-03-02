@@ -17,16 +17,7 @@ body {
 a {
   text-decoration: none;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-}
 
-p {
-}
 button {
   border: none;
   outline: none;
@@ -34,4 +25,9 @@ button {
 
 ul {
   list-style: none;
+  list-style-type: none;
+}
+
+span {
+  text-decoration: none;
 }

@@ -39,7 +39,7 @@ export default function Profile() {
   }
   return (
     <div className='profile'>
-      <Header/>
+      <Header />
       {activeSide === ORDER_HISTORY ? (
         <OrderHistory />
       ) : (

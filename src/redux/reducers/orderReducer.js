@@ -1,5 +1,5 @@
 const initialState = {
-  orders: [],
+  orders: null,
 }
 
 const orderReducer = (state = initialState, action) => {
@@ -7,7 +7,7 @@ const orderReducer = (state = initialState, action) => {
     case 'UPDATE_ORDER_HISTORY':
       return {
         ...state,
-        orders: [...state.orders, ...action.payload],
+        orders: action.payload,
       }
     default:
       return state
