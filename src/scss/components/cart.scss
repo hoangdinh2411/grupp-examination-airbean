@@ -130,6 +130,7 @@ button {
 .dropdown {
  margin-top: 50px;
  transform: translateX(-350px);
+ z-index: 1;
 }
 
 #dropdown-toggle {
