@@ -1,57 +1,63 @@
 import React from "react";
 import cartIcon from "../../assets/images/bag.svg";
 import Button from '../../components/Button'
+import { useDispatch, useSelector } from "react-redux"
+import { increaseCartQuantity, decreaseCartQuantity, updateCart } from "../../redux/actions/cartActions"
 
 export default function Cart() {
-  const order = [
-    {
-      id: "coffee-vxig26my4y",
-      title: "Bryggkaffe",
-      price: 39,
-      quantity: 5,
-    },
-    {
-      id: "coffee-4pdksmrkfa",
-      title: "Cappuccino",
-      price: 49,
-      quantity: 3,
-    },
-  ];
- 
-  function increaseQuantity() {
+  const cart = useSelector((state) => state.cartReducers.cart)
+  
+  const dispatch = useDispatch()
+
+  
+  function increaseQuantity(id) {
     console.log('increaseQuantity');
+    dispatch(increaseCartQuantity(id))
   }
 
-  function decresseQuantity() {
+  function decresseQuantity(id) {
     console.log('decresseQuantity');
+    dispatch(decreaseCartQuantity(id))
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === id) {
+        if (cart[i].quantity === 0) {
+          const newCart = cart.filter((item) => item.id !== id);
+          dispatch(updateCart(newCart))
+        }
+      }
+    }
   }
 
   function calculateTotalCost() {
     let totalCost = 0;
-    for (let i = 0; i < order.length; i++) {
-      totalCost += order[i].price * order[i].quantity;
+    for (let i = 0; i < cart.length; i++) {
+      totalCost += cart[i].price * cart[i].quantity;
     }
     return totalCost;
   }
 
   function calculateTotalQuantity() {
     let totalQuantity = 0;
-    for (let i = 0; i < order.length; i++) {
-      totalQuantity += order[i].quantity;
+    for (let i = 0; i < cart.length; i++) {
+      totalQuantity += cart[i].quantity;
     }
     return totalQuantity;
   }
 
   function renderCartItems() {
-    return order.map((item) => {
+    return cart.map((item) => {
       return (
         <div className="cart-item" key={item.id}>
           <div className="cart-item__type">
             <h3 className="cart-item__type-label">{item.title}</h3>
             <span className="dots"></span>
-            <Button onClick={decresseQuantity} variant='dark' className='cart-item__button-minus'>-</Button>
+            <Button onClick={() => {
+              return decresseQuantity(item.id)
+            }} variant='dark' className='cart-item__button-minus'>-</Button>
             <p className="cart-item-quantity-label">{item.quantity}</p>
-            <Button onClick={increaseQuantity} variant='dark' className='cart-item__button-plus'>+</Button>
+            <Button onClick={() => {
+              return increaseQuantity(item.id)
+            }} variant='dark' className='cart-item__button-plus'>+</Button>
           </div>
           <div className="cart-item__price">
             <p className="cart-item__price-label">{item.price * item.quantity}kr ({item.price}kr per st)</p>
