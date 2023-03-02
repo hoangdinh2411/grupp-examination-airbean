@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import Heading from './heading'
+import Heading from './Heading'
 import Textfield from '../../../components/Textfield'
 import Button from '../../../components/Button'
 import { LOGIN_FORM } from '../Profile'

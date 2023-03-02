@@ -3,6 +3,9 @@
   position: relative;
   padding-bottom: 2rem;
   //Authentication
+  .auth__wrapper {
+    padding: 1.7rem 2rem;
+  }
   .auth {
     margin: -3rem 1.7rem 0;
     z-index: 1000;

@@ -1,50 +1,41 @@
 import React, { useEffect } from 'react'
 import avatar from '../../../assets/images/avatar.svg'
-import { getDataOnLocalStorage } from '../../../utils/helper'
+import {
+  getDataOnLocalStorage,
+  saveDataOnLocalStorage,
+} from '../../../utils/helper'
 import fetching from '../../../utils/services'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateOrderHistory } from '../../../redux/actions/orderAction'
+import { useNavigate } from 'react-router-dom'
 
-const orderHistory = [
-  {
-    total: 300,
-    orderNr: 'Order#123',
-    orderDate: '20/02/2022',
-  },
-  {
-    total: 200,
-    orderNr: 'Order#456',
-    orderDate: '20/02/2022',
-  },
-  {
-    total: 100,
-    orderNr: 'Order#789',
-    orderDate: '20/02/2022',
-  },
-]
 export default function OrderHistory() {
   const orders = useSelector((state) => state.orderReducer.orders)
   const dispatch = useDispatch()
   const name = getDataOnLocalStorage('name') || ''
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if (orders) return
-
     getOrderHistory()
   }, [])
 
   const calculateTotalSpending = () => {
-    const totalSpending = orderHistory.reduce(
+    const totalSpending = orders.reduce(
       (total, order) => total + order.total,
       0
     )
     return totalSpending
   }
 
+  const showOrderStatus = (orderNr) => {
+    saveDataOnLocalStorage('ordernumber', orderNr)
+    navigate('/status')
+  }
+
   const getOrderHistory = async () => {
     const res = await fetching('user/history', 'GET')
     if (!res.success) return
-    dispatch(updateOrderHistory(res.details.order))
+    dispatch(updateOrderHistory(res.orderHistory))
   }
   return (
     <div className='order-history'>
@@ -55,12 +46,16 @@ export default function OrderHistory() {
         </article>
       </div>
       <div className='order-list'>
-        {orderHistory.length > 0 ? (
+        {orders ? (
           <>
             <p className='order-list__heading'>Orderhistorik</p>
             <ul className='list'>
-              {orderHistory.map((order) => (
-                <li className='order' key={order.orderNr}>
+              {orders.map((order) => (
+                <li
+                  className='order'
+                  key={order.orderNr}
+                  onClick={() => showOrderStatus(order.orderNr)}
+                >
                   <div className='order__detail'>
                     <b>{order.orderNr}</b>
                     <p>{order.orderDate}</p>

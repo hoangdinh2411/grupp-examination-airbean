@@ -1,7 +1,8 @@
 import React from 'react'
 import headerLeft from './../../assets/images/header-left.svg'
 import headerRight from './../../assets/images/header-right.svg'
-import vector from './../../assets/images/vector.svg'
+import vector from './../../assets/images/Vector.svg'
+import { Link } from 'react-router-dom'
 
 export default function Landing() {
   return (
@@ -13,7 +14,7 @@ export default function Landing() {
       />
 
       <section className='landing-page__wrapper__middle'>
-        <a href='/menu'>
+        <Link to='/menu'>
           <div className='landing-page__wrapper__middle__vector'>
             <img
               className='landing-page__wrapper__middle__vector__img'
@@ -21,7 +22,8 @@ export default function Landing() {
               alt=''
             />
           </div>
-        </a>
+        </Link>
+
         <h1 className='name'>AIR BEAN</h1>
         <p>DRONEDELIVERED COFFEE</p>
       </section>
