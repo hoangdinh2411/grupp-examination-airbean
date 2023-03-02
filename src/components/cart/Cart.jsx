@@ -3,12 +3,14 @@ import cartIcon from "../../assets/images/bag.svg";
 import Button from '../../components/Button'
 import { useDispatch, useSelector } from "react-redux"
 import { increaseCartQuantity, decreaseCartQuantity, updateCart } from "../../redux/actions/cartActions"
+import { Link, useNavigate } from "react-router-dom";
+import Status from "../../pages/status/Status";
+import { saveDataOnLocalStorage } from "../../utils/helper";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cartReducers.cart)
-  
   const dispatch = useDispatch()
-
+  const navigate = useNavigate()
   
   function increaseQuantity(id) {
     console.log('increaseQuantity');
@@ -57,7 +59,7 @@ export default function Cart() {
             <p className="cart-item-quantity-label">{item.quantity}</p>
             <Button onClick={() => {
               return increaseQuantity(item.id)
-            }} variant='dark' className='cart-item__button-plus'>+</Button>
+            }} variant='light' className='cart-item__button-plus'>+</Button>
           </div>
           <div className="cart-item__price">
             <p className="cart-item__price-label">{item.price * item.quantity}kr ({item.price}kr per st)</p>
@@ -65,6 +67,41 @@ export default function Cart() {
         </div>
       );
     });
+  }
+
+  function createOrder() { 
+    let masterObject = {order: []}
+
+    for (let i = 0; i < cart.length; i++) {
+      for (let j = 0; j < cart[i].quantity; j++){
+        let newObject = {}
+        newObject.name = (cart[i].title)
+        newObject.price = (cart[i].price)
+        masterObject.order.push(newObject)
+      }
+    }
+    const newOrder = {
+      "details": masterObject
+    }     
+    fetch('https://airbean.awesomo.dev/api/beans/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newOrder),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // console.log('Success:', data);
+          if (data){
+            saveDataOnLocalStorage('ordernumber',data.orderNr)
+            navigate('/status')
+            dispatch(updateCart([]))
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
   }
 
   return (
@@ -90,7 +127,7 @@ export default function Cart() {
               </div>
             </div>
           </div>
-          <button>Take my money!</button>
+          <button onClick={() => {return createOrder()}}>Take my money!</button>
         </div>
       </div>
     </div>

@@ -32,25 +32,27 @@ export default function Auth(props) {
     return () => clearTimeout(timer)
   }, [messages])
   return (
-    <section className='auth'>
-      {activeSide === LOGIN_FORM ? (
-        <LoginForm
-          setMessages={setMessages}
-          messages={messages}
-          formData={formData}
-          handleUpdateFormData={handleUpdateFormData}
-          handleToggleSide={handleToggleSide}
-        />
-      ) : null}
-      {activeSide === REGISTER_FORM ? (
-        <RegisterForm
-          setMessages={setMessages}
-          messages={messages}
-          formData={formData}
-          handleUpdateFormData={handleUpdateFormData}
-          handleToggleSide={handleToggleSide}
-        />
-      ) : null}
-    </section>
+    <div className='auth__wrapper'>
+      <section className='auth'>
+        {activeSide === LOGIN_FORM ? (
+          <LoginForm
+            setMessages={setMessages}
+            messages={messages}
+            formData={formData}
+            handleUpdateFormData={handleUpdateFormData}
+            handleToggleSide={handleToggleSide}
+          />
+        ) : null}
+        {activeSide === REGISTER_FORM ? (
+          <RegisterForm
+            setMessages={setMessages}
+            messages={messages}
+            formData={formData}
+            handleUpdateFormData={handleUpdateFormData}
+            handleToggleSide={handleToggleSide}
+          />
+        ) : null}
+      </section>
+    </div>
   )
 }
