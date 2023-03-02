@@ -7,6 +7,7 @@ const fetching = async (url = '', method, data = '') => {
     method: method,
     headers: {
       'Content-Type': 'application/json',
+      accept: 'application/json',
       Authorization: token ? `Bearer ${token}` : '',
     },
     body: method !== 'GET' ? JSON.stringify(data) : null,
