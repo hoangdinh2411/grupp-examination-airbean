@@ -16,6 +16,7 @@ export default function Cart() {
   const cart = useSelector((state) => state.cartReducers.cart)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  let appliedDiscount = false
 
   function increaseQuantity(id) {
     console.log('increaseQuantity')
@@ -39,6 +40,20 @@ export default function Cart() {
     let totalCost = 0
     for (let i = 0; i < cart.length; i++) {
       totalCost += cart[i].price * cart[i].quantity
+    }
+    let discountCheck = 0
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].title === 'Bryggkaffe' && cart[i].quantity > 0) {
+        discountCheck++
+      }
+      if (cart[i].title === 'Gustav Adolfsbakelse' && cart[i].quantity > 0) {
+        discountCheck++
+      }
+      if (discountCheck === 2) {
+        totalCost -= 49
+        discountCheck = 0
+        appliedDiscount = true
+      }
     }
     return totalCost
   }
@@ -128,11 +143,11 @@ export default function Cart() {
               <div className='cart-total__cost'>
                 <h3>Total</h3>
                 <span className='dots'></span>
-                <h3>{calculateTotalCost()}kr</h3>
+                <h3>{calculateTotalCost()}kr {appliedDiscount && <span className='cart-total__cost-discount'>(-49kr)</span>}</h3>
               </div>
               <div className='cart-total__sub'>
                 <p className='cart-total__sub-label'>
-                  inkl moms + drönarleverans
+                  inkl moms + drönarleverans{appliedDiscount && ' + kampanj (Bryggkaffe + Gustav Adolfsbakelse för 40kr)'}
                 </p>
               </div>
             </div>

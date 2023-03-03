@@ -92,6 +92,12 @@
   line-height: 27.6px;
 }
 
+.cart-total__cost-discount {
+  color: red;
+  font-size: 16px;
+  vertical-align: top;
+}
+
 .cart-total__sub-label{
   font-family: $WORK-SANS;
   font-weight: 400;

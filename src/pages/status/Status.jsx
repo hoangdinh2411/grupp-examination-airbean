@@ -19,15 +19,11 @@ useEffect(() => {
    
    function getETA(orderNR) {
       fetching(`beans/order/status/${orderNR}`, 'GET').then(res => {
-         console.log(res)
          setEta(res.eta)
-         console.log(JSON.parse(res));
       }).catch(err => {
          console.log(err);
       })
    }
-// const orderNr = state?.orderNr
-// const eta = state?.eta
 
   return <div className='status-wrapper'>
 
