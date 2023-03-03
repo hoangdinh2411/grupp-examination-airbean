@@ -1,0 +1,22 @@
+@mixin flex($justify: normal, $align: normal) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin text($size: 1.6rem, $color: $TEXT-DARK, $weight: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin position($position: relative, $top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+
+

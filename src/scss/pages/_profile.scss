@@ -1,0 +1,151 @@
+.profile {
+  background-color: $PROFILE-PAGE-BG;
+  position: relative;
+  padding-bottom: 2rem;
+  //Authentication
+  .auth__wrapper {
+    padding: 1.7rem 2rem;
+  }
+  .auth {
+    margin: -3rem 1.7rem 0;
+    z-index: 1000;
+    background: $AB-PINK;
+    box-shadow: 0px 0px 3.2rem rgba(0, 0, 0, 0.6);
+    border-radius: 0.3rem;
+    padding: 3.2rem 1.6rem 4rem;
+    &__heading {
+      margin-bottom: 3.2rem;
+      text-align: center;
+      img {
+        width: 3rem;
+        height: 3rem;
+        background: rgba(0, 0, 0, 0.1);
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+        border-radius: 50%;
+      }
+
+      h1 {
+        font-family: $PT-SERIF;
+        @include text(3.2rem, $TEXT-DARK, 700);
+        font-style: normal;
+        line-height: 120%;
+      }
+
+      p {
+        font-family: $WORK-SANS;
+        @include text(1.6rem, $TEXT-DARK, 400);
+        font-style: normal;
+        line-height: 150%;
+        text-align: center;
+        width: 29rem;
+        height: 5.6rem;
+      }
+    }
+    .message {
+      font-family: $WORK-SANS;
+      text-align: center;
+      @include text(1.4rem, $AB-ORANGE, 400);
+    }
+    .form {
+      @include flex(center, left);
+      flex-direction: column;
+
+      &__link {
+        font-family: $PT-SERIF;
+        @include text(1.6rem, #000000, 400);
+        font-style: normal;
+        line-height: 120%;
+        color: #000000;
+        margin-bottom: 4rem;
+
+        .link {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      .btn {
+        margin: auto;
+      }
+    }
+  }
+
+  // Order history
+  .order-history {
+    padding: 0 3rem 6rem;
+    .user {
+      text-align: center;
+      margin-bottom: 6.5rem;
+      &__avatar {
+        width: 9.4rem;
+        height: 9.4rem;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+      }
+      &__name {
+        font-family: $PT-SERIF;
+        text-align: center;
+        @include text(2.4rem, $TEXT-LIGHT, 700);
+        line-height: 120%;
+        margin-bottom: 0.8rem;
+      }
+      &__email {
+        font-family: $WORK-SANS;
+        text-align: center;
+        @include text(1.4rem, rgba(255, 255, 255, 0.8), 400);
+        line-height: 120%;
+      }
+    }
+
+    .order-list {
+      &__heading {
+        font-family: $PT-SERIF;
+        margin-bottom: 1.6rem;
+        @include text(2.2rem, $TEXT-LIGHT, 700);
+      }
+      &__not-found {
+        @include flex(center, center);
+        height: 20rem;
+        margin: 1.6rem 0;
+        @include text(2.2rem, $TEXT-LIGHT, 700);
+      }
+      .list {
+        font-family: $WORK-SANS;
+        line-height: 120%;
+        width: 100%;
+        .order {
+          padding: 1.2rem 0;
+          width: 100%;
+          cursor: pointer;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+          div {
+            @include flex(space-between, center);
+          }
+          &__detail {
+            margin-bottom: 0.8rem;
+            @include text(1.4rem, rgba(255, 255, 255, 0.7), 700);
+            p {
+              @include text(1.2rem, null, 400);
+              text-align: right;
+            }
+          }
+          &__total-sum {
+            p {
+              font-family: $WORK-SANS;
+              @include text(1.2rem, rgba(255, 255, 255, 0.7), 400);
+            }
+            p:nth-child(2) {
+              text-align: right;
+            }
+          }
+        }
+      }
+
+      .total-spending {
+        margin-top: 1.6rem;
+        @include flex(space-between, center);
+        @include text(1.4rem, rgba(255, 255, 255, 0.7), 700);
+      }
+    }
+  }
+}

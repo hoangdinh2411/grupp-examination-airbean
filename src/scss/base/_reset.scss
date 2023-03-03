@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  line-height: 1.6;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: $PT-SERIF;
+  font-family: $RUFINA;
+  font-family: $WORK-SANS;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+ul {
+  list-style: none;
+  list-style-type: none;
+}
+
+span {
+  text-decoration: none;
+}
