@@ -16,6 +16,7 @@ export default function OrderHistory() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    if (orders) return
     getOrderHistory()
   }, [])
 

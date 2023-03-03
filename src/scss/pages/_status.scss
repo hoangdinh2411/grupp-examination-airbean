@@ -1,50 +1,38 @@
+.status-wrapper {
+  background: $AB-ORANGE;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $AB-WHITE;
+  padding-bottom: 7rem;
 
+  &__orderNr {
+    font-family: $WORK-SANS;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    font-size: 16px;
+  }
 
-.status-wrapper{
-    background: $AB-ORANGE;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  &__img {
+    margin-bottom: 6rem;
+  }
+
+  &__h1 {
+    font-family: $PT-SERIF;
     color: $AB-WHITE;
+    font-weight: 700;
+    font-size: 36px;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    text-align: center;
+  }
 
-    &__orderNr{
-        font-family: $WORK-SANS;
-        margin-top: 5rem;
-        margin-bottom: 5rem;
-        font-size: 16px;
-    }
-
-    &__img{
-        margin-bottom: 6rem;
-
-    }
-
-    &__h1{
-        font-family: $PT-SERIF;
-        color: $AB-WHITE;
-        font-weight: 700;
-        font-size: 36px;
-        margin-left: 4rem;
-        margin-right: 4rem;
-        text-align: center;
-    }
-
-    &__eta{
-        font-family: $WORK-SANS;
-        font-weight: 400;
-        font-size: 21px;
-    }
-
-    &__btn{
-        font-family: $PT-SERIF;
-        font-size: 24px;
-        margin-top: 5rem;
-        margin-bottom: 7rem;
-        width: 184px;
-        height: 55px;
-        border-radius: 50px;
-        background: $AB-WHITE;
-        color: $AB-BROWN;
-
-    }
+  &__eta {
+    font-family: $WORK-SANS;
+    font-weight: 400;
+    font-size: 21px;
+  }
+  .btn {
+    margin-top: 5rem;
+  }
 }

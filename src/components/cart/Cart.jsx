@@ -1,6 +1,6 @@
 import React from 'react'
 import cartIcon from '../../assets/images/bag.svg'
-import Button from '../../components/Button'
+import Button from '../Button'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   increaseCartQuantity,
@@ -23,8 +23,8 @@ export default function Cart() {
     dispatch(increaseCartQuantity(id))
   }
 
-  function decresseQuantity(id) {
-    console.log('decresseQuantity')
+  function decreaseQuantity(id) {
+    console.log('decreaseQuantity')
     dispatch(decreaseCartQuantity(id))
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].id === id) {
@@ -67,40 +67,34 @@ export default function Cart() {
   }
 
   function renderCartItems() {
-    return cart.map((item) => {
-      return (
-        <div className='cart-item' key={item.id}>
-          <div className='cart-item__type'>
-            <h3 className='cart-item__type-label'>{item.title}</h3>
-            <span className='dots'></span>
-            <Button
-              onClick={() => {
-                return decresseQuantity(item.id)
-              }}
-              variant='dark'
-              className='cart-item__button-minus'
-            >
-              -
-            </Button>
-            <p className='cart-item-quantity-label'>{item.quantity}</p>
-            <Button
-              onClick={() => {
-                return increaseQuantity(item.id)
-              }}
-              variant='light'
-              className='cart-item__button-plus'
-            >
-              +
-            </Button>
-          </div>
-          <div className='cart-item__price'>
-            <p className='cart-item__price-label'>
-              {item.price * item.quantity}kr ({item.price}kr per st)
-            </p>
-          </div>
+    return cart.map((item) => (
+      <div className='cart-item' key={item.id}>
+        <div className='cart-item__type'>
+          <h3 className='cart-item__type-label'>{item.title}</h3>
+          <span className='dots'></span>
+          <Button
+            onClick={() => decreaseQuantity(item.id)}
+            variant='dark'
+            className='cart-item__button-minus'
+          >
+            -
+          </Button>
+          <p className='cart-item-quantity-label'>{item.quantity}</p>
+          <Button
+            onClick={() => increaseQuantity(item.id)}
+            variant='light'
+            className='cart-item__button-plus'
+          >
+            +
+          </Button>
         </div>
-      )
-    })
+        <div className='cart-item__price'>
+          <p className='cart-item__price-label'>
+            {item.price * item.quantity}kr ({item.price}kr per st)
+          </p>
+        </div>
+      </div>
+    ))
   }
 
   async function createOrder() {
@@ -143,21 +137,23 @@ export default function Cart() {
               <div className='cart-total__cost'>
                 <h3>Total</h3>
                 <span className='dots'></span>
-                <h3>{calculateTotalCost()}kr {appliedDiscount && <span className='cart-total__cost-discount'>(-49kr)</span>}</h3>
+                <h3>
+                  {calculateTotalCost()}kr{' '}
+                  {appliedDiscount && (
+                    <span className='cart-total__cost-discount'>(-49kr)</span>
+                  )}
+                </h3>
               </div>
               <div className='cart-total__sub'>
                 <p className='cart-total__sub-label'>
-                  inkl moms + drönarleverans{appliedDiscount && ' + kampanj (Bryggkaffe + Gustav Adolfsbakelse för 40kr)'}
+                  inkl moms + drönarleverans
+                  {appliedDiscount &&
+                    ' + kampanj (Bryggkaffe + Gustav Adolfsbakelse för 40kr)'}
                 </p>
               </div>
             </div>
           </div>
-          <button
-            disabled={cart.length === 0}
-            onClick={() => {
-              return createOrder()
-            }}
-          >
+          <button disabled={cart.length === 0} onClick={() => createOrder()}>
             Take my money!
           </button>
         </div>

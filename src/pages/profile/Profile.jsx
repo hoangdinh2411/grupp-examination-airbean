@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import Header from '../../components/header/Header'
 import Auth from './auth'
 import {
   getDataOnSession,
@@ -8,7 +7,7 @@ import {
 } from '../../utils/helper'
 import OrderHistory from './orderHistory/OrderHistory'
 import fetching from '../../utils/services'
-import { useSelector } from 'react-redux'
+import Header from '../../components/header/Header'
 export const LOGIN_FORM = 0
 export const REGISTER_FORM = 1
 export const ORDER_HISTORY = 2
@@ -39,7 +38,7 @@ export default function Profile() {
   }
   return (
     <div className='profile'>
-      <Header />
+      <Header cart={false} />
       {activeSide === ORDER_HISTORY ? (
         <OrderHistory />
       ) : (

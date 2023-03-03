@@ -1,9 +1,10 @@
 import React from 'react'
 import header from '../../assets/images/header-top.svg'
-import Cart from '../cart/Cart'
-import Nav from '../nav/Nav'
+import Cart from '../Cart/Cart'
+import Nav from '../Nav/Nav'
 
-export default function Header() {
+export default function Header(props) {
+  const { cart = true } = props
   return (
     <header
       className='header__wrapper'
@@ -14,7 +15,7 @@ export default function Header() {
       }}
     >
       <Nav />
-      <Cart />
+      {cart ? <Cart /> : null}
     </header>
   )
 }
