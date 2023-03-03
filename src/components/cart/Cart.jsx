@@ -153,6 +153,7 @@ export default function Cart() {
             </div>
           </div>
           <button
+            disabled={cart.length === 0}
             onClick={() => {
               return createOrder()
             }}
