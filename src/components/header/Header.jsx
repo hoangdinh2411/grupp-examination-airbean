@@ -1,7 +1,7 @@
 import React from 'react'
 import header from '../../assets/images/header-top.svg'
-import Cart from '../Cart/Cart'
-import Nav from '../Nav/Nav'
+import Cart from '../cart/Cart'
+import Nav from '../nav/Nav'
 
 export default function Header(props) {
   const { cart = true } = props

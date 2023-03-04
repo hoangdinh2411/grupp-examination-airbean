@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../../components/header/Header'
 import MenuItems from '../../components/Menu/MenuItems'
-import Footer from '../../components/Footer/Footer'
+import Footer from '../../components/footer/Footer'
 
 export default function Menu() {
   return (
