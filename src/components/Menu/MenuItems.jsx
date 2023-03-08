@@ -8,11 +8,11 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function MenuItems() {
-  const [meny, setMeny] = React.useState([])
+  const [menu, setMenu] = React.useState([])
 
   const getItems = async () => {
     const res = await fetching('beans', 'GET')
-    setMeny(res.menu)
+    setMenu(res.menu)
   }
 
   React.useEffect(() => {
@@ -29,12 +29,12 @@ export default function MenuItems() {
       return
     }
 
-    let selectedItem = meny.find((item) => item.id === id)
+    let selectedItem = menu.find((item) => item.id === id)
     let newCart = [...cart, { ...selectedItem, quantity: 1 }]
     dispatch(updateCart(newCart))
   }
 
-  const mappeditems = meny.map((x) => {
+  const mappeditems = menu.map((x) => {
     return (
       <MenuRender
         key={x.id}

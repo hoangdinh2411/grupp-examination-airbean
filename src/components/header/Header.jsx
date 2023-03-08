@@ -10,8 +10,6 @@ export default function Header(props) {
       className='header__wrapper'
       style={{
         backgroundImage: `url(${header})`,
-        display: 'flex',
-        justifyContent: 'space-between',
       }}
     >
       <Nav />
